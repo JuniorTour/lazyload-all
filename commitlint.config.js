@@ -1,3 +1,6 @@
 module.exports = {
   extends: ['@commitlint/config-conventional'],
+  rules: {
+    'subject-case': [0, 'never', ['upper-case', 'pascal-case', 'start-case']],
+  },
 };

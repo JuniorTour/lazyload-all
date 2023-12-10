@@ -1,6 +1,7 @@
 // rollup.config.js
 // commonjs
 var common = require('./rollup.cjs');
+var terser = require('@rollup/plugin-terser');
 
 module.exports = {
   input: 'src/index.js',
@@ -14,5 +15,5 @@ module.exports = {
       sourcemap: true,
     },
   ],
-  plugins: [common.getCompiler()],
+  plugins: [common.getCompiler(), terser()],
 };

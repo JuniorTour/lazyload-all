@@ -10,7 +10,16 @@
 
     <script src="../dist/index.aio.js"></script>
     <script>
-      console.log(window['LazyLoadAll'].name);
+      console.log(window['LazyLoadAll']);
+      const lazyLoadeAllInstance = window.LazyLoadAll.initLazyloadAll({
+        // mode: MODES.scroll,
+        // mode: MODES.intersectionObserver,
+        once: true,
+      });
+
+      // 懒加载元素增减后，更新监视目标
+      // lazyLoadeAllInstance.update();
+      debugger;
     </script>
   </body>
 </html>

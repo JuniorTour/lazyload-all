@@ -2,16 +2,125 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Document</title>
+    <title>Lazyload Playground</title>
+    <style>
+      .placeholder-box {
+        width: 500px;
+        height: 1200px;
+        background: linear-gradient(
+            0deg,
+            transparent 32%,
+            rgba(13, 242, 70, 0.3) 32%,
+            rgba(13, 242, 70, 0.3) 40%,
+            transparent 40%,
+            transparent 48%,
+            rgba(13, 242, 70, 0.3) 48%
+          ),
+          linear-gradient(
+            90deg,
+            transparent 8%,
+            rgba(13, 242, 70, 0.3) 8%,
+            rgba(13, 242, 70, 0.3) 24%,
+            transparent 24%,
+            transparent 52%,
+            rgba(13, 242, 70, 0.3) 52%
+          ),
+          white;
+        background-size: 30px 30px;
+      }
+    </style>
+    <style>
+      .with-img-bg {
+        width: 600px;
+        height: 300px;
+        background-size: 100%;
+      }
+    </style>
   </head>
   <body>
+    <h1>Lazyload Playground</h1>
+
+    <div>
+      <div class="placeholder-box">占位符，请向下滚动页面</div>
+
+      <h2>Img Lazy Load DEMO</h2>
+      <img
+        data-lazyload
+        data-src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5abdb9a058574c2e84c09883ac65541d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=972&h=550&s=79523&e=png&b=ffffff"
+        alt="前端工程体验优化图片"
+      />
+
+      <h2>Video Lazy Load DEMO</h2>
+      <video
+        data-lazyload
+        data-src="https://colinbendell.github.io/webperf/animated-gif-decode/1.mp4"
+        muted
+        autoplay
+        loop
+      ></video>
+
+      <h2>Video && source Lazy Load DEMO</h2>
+      <video data-lazyload playsinline muted autoplay loop>
+        <source
+          data-src="https://colinbendell.github.io/webperf/animated-gif-decode/1.webm"
+          type="video/webm"
+        />
+        <source
+          data-src="https://colinbendell.github.io/webperf/animated-gif-decode/1.mp4"
+          type="video/mp4"
+        />
+      </video>
+
+      <h2>Picture && source Lazy Load DEMO</h2>
+      <picture data-lazyload>
+        <source
+          data-srcset="https://examples-1251000004.cos.ap-shanghai.myqcloud.com/sample.jpeg?imageMogr2/format/avif"
+          type="image/avif"
+        />
+        <source
+          data-srcset="https://examples-1251000004.cos.ap-shanghai.myqcloud.com/sample.jpeg?imageMogr2/format/webp"
+          type="image/webp"
+        />
+        <img
+          data-src="https://examples-1251000004.cos.ap-shanghai.myqcloud.com/sample.jpeg?imageMogr2/format/webp"
+        />
+      </picture>
+
+      <h2>Iframe Lazy Load DEMO</h2>
+      <iframe
+        data-lazyload
+        data-src="https://www.openstreetmap.org/export/embed.html?bbox=-0.004017949104309083%2C51.47612752641776%2C0.00030577182769775396%2C51.478569861898606&layer=mapnik"
+        frameborder="0"
+        width="500"
+        height="500"
+      ></iframe>
+
+      <h2>Background Image Lazy Load DEMO</h2>
+      <div
+        class="with-img-bg"
+        data-lazyload
+        data-bg-src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5abdb9a058574c2e84c09883ac65541d~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=972&h=550&s=79523&e=png&b=ffffff"
+      >
+        懒加载背景图元素
+      </div>
+    </div>
+
     <script src="../node_modules/es5-shim/es5-shim.js"></script>
     <script src="../node_modules/es5-shim/es5-sham.js"></script>
 
     <script src="./js/require.js"></script>
     <script>
-      requirejs(['../dist/index.aio.js'], function (base) {
-        console.log(base.name);
+      requirejs(['../dist/index.aio.js'], function ({ initLazyloadAll }) {
+        // console.log(`runLazyloadAll=${runLazyloadAll}`);
+        // debugger
+        const lazyLoadeAllInstance = initLazyloadAll({
+          // mode: MODES.scroll,
+          // mode: MODES.intersectionObserver,
+          once: true,
+        });
+
+        // 懒加载元素增减后，更新监视目标
+        lazyLoadeAllInstance.update();
       });
     </script>
   </body>

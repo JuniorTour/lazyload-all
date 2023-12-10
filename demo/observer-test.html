@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Intersection Observer DEMO</title>
+    <style>
+      #scrollArea {
+        overflow: scroll;
+        width: 500px;
+        height: 600px;
+        background: linear-gradient(
+            0deg,
+            transparent 32%,
+            rgba(13, 242, 70, 0.3) 32%,
+            rgba(13, 242, 70, 0.3) 40%,
+            transparent 40%,
+            transparent 48%,
+            rgba(13, 242, 70, 0.3) 48%
+          ),
+          linear-gradient(
+            90deg,
+            transparent 8%,
+            rgba(13, 242, 70, 0.3) 8%,
+            rgba(13, 242, 70, 0.3) 24%,
+            transparent 24%,
+            transparent 52%,
+            rgba(13, 242, 70, 0.3) 52%
+          ),
+          white;
+        background-size: 30px 30px;
+      }
+      .box {
+        background: rgba(255, 242, 255, 0.9);
+        width: 300px;
+        height: 500px;
+        margin: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Intersection Observer DEMO</h1>
+    <div id="scrollArea">
+      <h3>div#scrollArea</h3>
+      <div class="box" data-n="1">box</div>
+      <div class="box" data-n="2">box</div>
+      <div class="box" data-n="3">box</div>
+    </div>
+
+    <script>
+      let options = {
+        root: document.querySelector('#scrollArea'),
+        rootMargin: '0px',
+        threshold: 1.0,
+        // threshold: 0,
+        // threshold: 0.5,
+      };
+
+      let observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            console.log(
+              `entry.isIntersecting n=`,
+              entry.target.getAttribute('data-n'),
+            );
+            //onIntersect(entry.target);
+          }
+        });
+      }, options);
+
+      const boxEles = document.querySelectorAll('.box');
+      if (boxEles.length) {
+        boxEles.forEach((ele) => {
+          observer.observe(ele);
+        });
+      }
+    </script>
+  </body>
+</html>
