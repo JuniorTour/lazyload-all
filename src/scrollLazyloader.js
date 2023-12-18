@@ -46,10 +46,6 @@ export default class ScrollLazyLoader {
       return;
     }
 
-    // 初始化时，运行一次runLoad()，
-    // 从而实现页面刷新，滚动位置不变时，仍能触发懒加载
-    this.runLoad(options);
-
     window.addEventListener(
       'scroll',
       throttle(() => {

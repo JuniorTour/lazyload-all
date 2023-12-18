@@ -2,8 +2,9 @@ import LazyLoadAll from './LazyLoadAll';
 import { onIntersectCb } from './loadHandlers';
 import { MODES } from './const';
 
+export * from './const';
+
 export function initLazyloadAll(options) {
-  // debugger;
   const lazyLoadeAllInstance = new LazyLoadAll({
     onIntersectCb,
     once: true,

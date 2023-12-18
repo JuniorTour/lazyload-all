@@ -33,11 +33,7 @@ $ npm install --save lazyload-all
 ```js
 const { initLazyloadAll } = require('lazyload-all');
 
-const lazyLoadeAllInstance = initLazyloadAll({
-  // mode: MODES.scroll,
-  // mode: MODES.intersectionObserver,
-  once: true,
-});
+const lazyLoadeAllInstance = initLazyloadAll();
 ```
 
 #### 1. Webpack 环境
@@ -45,11 +41,7 @@ const lazyLoadeAllInstance = initLazyloadAll({
 ```js
 import { initLazyloadAll } from 'lazyload-all';
 
-const lazyLoadeAllInstance = initLazyloadAll({
-  // mode: MODES.scroll,
-  // mode: MODES.intersectionObserver,
-  once: true,
-});
+const lazyLoadeAllInstance = initLazyloadAll();
 ```
 
 #### 3. 浏览器环境
@@ -57,11 +49,7 @@ const lazyLoadeAllInstance = initLazyloadAll({
 ```html
 <script src="node_modules/lazyload-all/dist/index.aio.js"></script>
 <script>
-  const lazyLoadeAllInstance = window.LazyLoadAll.initLazyloadAll({
-    // mode: MODES.scroll,
-    // mode: MODES.intersectionObserver,
-    once: true,
-  });
+  const lazyLoadeAllInstance = window.LazyLoadAll.initLazyloadAll();
 </script>
 ```
 

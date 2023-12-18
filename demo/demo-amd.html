@@ -110,12 +110,12 @@
 
     <script src="./js/require.js"></script>
     <script>
-      requirejs(['../dist/index.aio.js'], function ({ initLazyloadAll }) {
+      requirejs(['../dist/index.aio.js'], function ({ MODES, initLazyloadAll }) {
         // console.log(`runLazyloadAll=${runLazyloadAll}`);
         // debugger
         const lazyLoadeAllInstance = initLazyloadAll({
           // mode: MODES.scroll,
-          // mode: MODES.intersectionObserver,
+          mode: MODES.intersectionObserver,
           once: true,
         });
 
