@@ -5,7 +5,7 @@ export default class IntersectionLazyLoader {
     this.init(options);
   }
 
-  init({ onIntersectCb, once, ObserverOptions }) {
+  init({ onIntersectCb, once, ObserverOptions, afterLoadCb }) {
     if (!onIntersectCb) {
       console.warn(
         `initScrollLazyLoader have falsy onIntersectCb=${onIntersectCb} `,
@@ -30,6 +30,9 @@ export default class IntersectionLazyLoader {
           onIntersectCb(ele);
           if (once) {
             this.removeTarget(ele);
+          }
+          if (afterLoadCb) {
+            afterLoadCb?.(ele);
           }
         } else {
           // onExit()

@@ -55,10 +55,11 @@ const lazyLoadeAllInstance = initLazyloadAll();
 
 ### 3. 初始化参数
 
-| 参数属性名 | 简介                                                                     | 默认值                   | 可选值                                          |
-| ---------- | ------------------------------------------------------------------------ | ------------------------ | ----------------------------------------------- |
-| `mode`     | 懒加载使用的API，支持基于`scroll 事件`和`IntersectionObserver API` 2种。 | `'intersectionObserver'` | 1. `'intersectionObserver'` <br/> 2. `'scroll'` |
-| `once`     | 触发加载后，是否不再对目标元素执行监听逻辑。                             | `true`                   | 1. `true` <br/> 2. `false`                      |
+| 参数属性名    | 简介                                                                     | 默认值                   | 可选值                                          |
+| ------------- | ------------------------------------------------------------------------ | ------------------------ | ----------------------------------------------- |
+| `mode`        | 懒加载使用的API，支持基于`scroll 事件`和`IntersectionObserver API` 2种。 | `'intersectionObserver'` | 1. `'intersectionObserver'` <br/> 2. `'scroll'` |
+| `once`        | 触发加载后，是否不再对目标元素执行监听逻辑。                             | `true`                   | 1. `true` <br/> 2. `false`                      |
+| `afterLoadCb` | 触发加载后，执行的回调函数。                                             | `undefined`              | `function(ele: HTMLElement): void`              |
 
 ### 4. 实例方法
 

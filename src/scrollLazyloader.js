@@ -20,7 +20,7 @@ export default class ScrollLazyLoader {
     this.inited = true;
   }
 
-  runLoad({ onIntersectCb, once }) {
+  runLoad({ onIntersectCb, once, afterLoadCb }) {
     this.targetEles.forEach((ele) => {
       // 获取图片与视口顶部的相对距离
       const topPos = ele.getBoundingClientRect().top;
@@ -30,6 +30,9 @@ export default class ScrollLazyLoader {
         onIntersectCb(ele);
         if (once) {
           this.removeTarget(ele);
+        }
+        if (afterLoadCb) {
+          afterLoadCb?.(ele);
         }
       }
     });

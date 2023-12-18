@@ -110,18 +110,26 @@
 
     <script src="./js/require.js"></script>
     <script>
-      requirejs(['../dist/index.aio.js'], function ({ MODES, initLazyloadAll }) {
-        // console.log(`runLazyloadAll=${runLazyloadAll}`);
-        // debugger
-        const lazyLoadeAllInstance = initLazyloadAll({
-          // mode: MODES.scroll,
-          mode: MODES.intersectionObserver,
-          once: true,
-        });
+      requirejs(
+        ['../dist/index.aio.js'],
+        // ['https://cdn.jsdelivr.net/npm/lazyload-all@0.1.0/dist/index.aio.js'],
+        function ({ MODES, initLazyloadAll }) {
+          // console.log(`runLazyloadAll=${runLazyloadAll}`);
+          // debugger
+          const lazyLoadeAllInstance = initLazyloadAll({
+            // mode: MODES.scroll,
+            mode: MODES.intersectionObserver,
+            once: true,
+            // afterLoadCb(ele) {
+            //   debugger;
+            //   console.log(`After lazyload`, ele);
+            // },
+          });
 
-        // 懒加载元素增减后，更新监视目标
-        lazyLoadeAllInstance.update();
-      });
+          // 懒加载元素增减后，更新监视目标
+          lazyLoadeAllInstance.update();
+        },
+      );
     </script>
   </body>
 </html>
