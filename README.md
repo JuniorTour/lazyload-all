@@ -36,7 +36,7 @@ const { initLazyloadAll } = require('lazyload-all');
 const lazyLoadeAllInstance = initLazyloadAll();
 ```
 
-#### 1. Webpack 环境
+#### 2. Webpack 环境
 
 ```js
 import { initLazyloadAll } from 'lazyload-all';
@@ -79,7 +79,7 @@ lazyLoadeAllInstance.update();
 
 ## 本地开发
 
-#### 1. 运行开发环境
+### 1. 运行开发环境
 
 ```bash
 $ npm run dev
@@ -87,13 +87,13 @@ $ npm run dev
 
 打开练习场地：`/lazyload-all/demo/demo-amd.html`
 
-#### 2. 打包生产代码
+### 2. 打包生产代码
 
 ```bash
 $ npm run build
 ```
 
-#### 3. 运行单元测试:
+### 3. 运行单元测试
 
 ```bash
 $ npm test
@@ -101,7 +101,7 @@ $ npm test
 
 > 注意：浏览器环境需要手动测试，位于`test/browser`
 
-#### 4. 发布新版本
+### 4. 发布新版本
 
 修改 package.json 中的版本号，将新版本发布到NPM
 
