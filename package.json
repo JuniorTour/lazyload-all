@@ -1,6 +1,6 @@
 {
   "name": "lazyload-all",
-  "version": "0.1.0",
+  "version": "0.1.0-beta.0",
   "description": "The best third party JS|TS library scaffold",
   "sideEffects": false,
   "main": "dist/index.js",
