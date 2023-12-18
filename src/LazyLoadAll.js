@@ -1,4 +1,4 @@
-import ScrollLazyLoader from './ScrollLazyloader';
+import ScrollLazyLoader from './scrollLazyloader';
 import IntersectionLazyLoader from './IntersectionLazyLoader';
 import { MODES, ATTRS } from './const';
 
