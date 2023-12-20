@@ -16,6 +16,12 @@
 - 浏览器兼容性好：支持`IE11`
 - 支持多环境、多种模块化方案运行：Node.js `CJS`模块，浏览器平台`UMD`模块、`ES Module`
 
+## :zap: 在线DEMO
+
+[lazyload-all 在线运行DEMO](https://stackblitz.com/edit/stackblitz-starters-myzkwy?file=src%2FApp.js)
+
+![image](https://github.com/JuniorTour/blog/assets/14243906/03c4ffca-b07b-4b14-9655-e10cee8aa812)
+
 ## :rocket: 使用指南
 
 ### 1. 安装

@@ -110,6 +110,8 @@
 
     <script src="./js/require.js"></script>
     <script>
+      function report() {}
+
       requirejs(
         ['../dist/index.aio.js'],
         // ['https://cdn.jsdelivr.net/npm/lazyload-all@0.1.0/dist/index.aio.js'],
@@ -120,10 +122,9 @@
             // mode: MODES.scroll,
             mode: MODES.intersectionObserver,
             once: true,
-            // afterLoadCb(ele) {
-            //   debugger;
-            //   console.log(`After lazyload`, ele);
-            // },
+            afterLoadCb(ele) {
+              report('LazyLoadTrigger', { type: ele?.tagName });
+            },
           });
 
           // 懒加载元素增减后，更新监视目标
